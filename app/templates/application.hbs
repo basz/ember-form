@@ -1,0 +1,105 @@
+<div class="container my-5">
+
+  <div class="row">
+    <div class="col-7">
+      <h6>property on model</h6>
+    </div>
+    <div class="col-7">
+      <code class="small">
+        model prop: {{json this.model.prop}}<br>
+        changeset prop: {{json this.changeset.prop}}
+      </code>
+    </div>
+    <div class="col-5">
+      <BsForm @model={{this.changeset}} @onSubmit={{action "onSubmit"}} as |form|>
+        <form.element @property="prop" as |el|>
+          <code class="small">value in element: {{json el.value}}</code>
+          <BsButtonGroup @value={{el.value}} class="w-100" @type="radio" @onChange={{action (changeset-set this.changeset "prop")}} as |bg|>
+            <bg.button @type="primary" class="p-3" @value="1">
+              one
+            </bg.button>
+            <bg.button @type="primary" class="p-3" @value="2">
+              two
+            </bg.button>
+            <bg.button @type="primary" class="p-3" @value={{null}}>
+              none
+            </bg.button>
+          </BsButtonGroup>
+        </form.element>
+      </BsForm>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-7">
+      <h6>property on model.fragment</h6>
+    </div>
+    <div class="col-7">
+      <code class="small">
+        model child.prop: {{json this.model.child.prop}}<br>
+        changeset child.prop: {{json (changeset-get this.changeset "child.prop")}}
+      </code>
+    </div>
+    <div class="col-5">
+      <BsForm @model={{this.changeset}} @onSubmit={{action "onSubmit"}} as |form|>
+        <form.element @property="child.prop" as |el|>
+          <code class="small">value in element: {{json el.value}}</code>
+          <BsButtonGroup @value={{el.value}} class="w-100" @type="radio" @onChange={{action (changeset-set this.changeset "child.prop")}} as |bg|>
+            <bg.button @type="primary" class="p-3" @value="1">
+              one
+            </bg.button>
+            <bg.button @type="primary" class="p-3" @value="2">
+              two
+            </bg.button>
+            <bg.button @type="primary" class="p-3" @value={{null}}>
+              none
+            </bg.button>
+          </BsButtonGroup>
+        </form.element>
+      </BsForm>
+    </div>
+  </div>
+
+  <code class="small">
+    {{#each this.changeset.errors as |error|}}
+      {{error.key}}: {{error.validation}}<br>
+    {{/each}}
+  </code>
+
+  <div class="row py-5">
+    <div class="col-10">
+      <p>There is `model` (root) which has a `fragment` (child).</p>
+      <pre><code class="small">
+export default class Root extends Model {
+  @attr('string', {
+    defaultValue: () => {
+      return '1';
+    }
+  })
+  prop;
+
+  @fragment('child', {
+    defaultValue: () => {
+      return '1';
+    }
+  })
+  child;
+}
+
+export default Fragment.extend({
+  prop: attr('string', {
+    defaultValue: () => {
+      return '1';
+    }
+  })
+});
+      </code></pre>
+      <p>We have bs bootstrap form which contains changeset as model</p>
+      <p>We create a changeset: `new Changeset(model)`</p>
+      <p>The first observation is that 'root' validates fine and only the changeset receives changes.</p>
+
+      <p>However, changes made on the second control seem to get correctly get to  the changeset but do not propagate back into the control. The element value is not updated.</p>
+      <p>In addition setting the setting control to 'null' will result in an error.</p>
+    </div>
+  </div>
+</div>

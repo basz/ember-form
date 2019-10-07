@@ -1,0 +1,69 @@
+{
+  "name": "test-form-validation",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Small description for test-form-validation goes here",
+  "repository": "",
+  "license": "MIT",
+  "author": "",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "ember build",
+    "lint:hbs": "ember-template-lint .",
+    "lint:js": "eslint .",
+    "start": "ember serve",
+    "test": "ember test"
+  },
+  "devDependencies": {
+    "@ember/optional-features": "^1.3.0",
+    "babel-eslint": "^10.0.0",
+    "bootstrap": "^4.5.0",
+    "broccoli-asset-rev": "^3.0.0",
+    "ember-ajax": "^5.0.0",
+    "ember-auto-import": "^1.0.1",
+    "ember-bootstrap": "^3.1.3",
+    "ember-bootstrap-changeset-validations": "^3.0.0",
+    "ember-changeset": "^3.4.0",
+    "ember-changeset-validations": "^3.3.2",
+    "ember-cli": "~3.16.0",
+    "ember-cli-app-version": "^3.2.0",
+    "ember-cli-babel": "^7.7.3",
+    "ember-cli-dependency-checker": "^3.1.0",
+    "ember-cli-eslint": "^5.1.0",
+    "ember-cli-htmlbars": "^3.0.1",
+    "ember-cli-htmlbars-inline-precompile": "^2.1.0",
+    "ember-cli-inject-live-reload": "^1.8.2",
+    "ember-cli-sri": "^2.1.1",
+    "ember-cli-template-lint": "^1.0.0-beta.1",
+    "ember-cli-uglify": "^2.1.0",
+    "ember-data": "3.16.6",
+    "ember-data-model-fragments": "https://github.com/richgt/ember-data.model-fragments.git#f7810c9a2bfbe86aa665b3e488048be65c8101f2",
+    "ember-export-application-global": "^2.0.0",
+    "ember-load-initializers": "^2.0.0",
+    "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-qunit": "^4.4.1",
+    "ember-resolver": "^5.0.1",
+    "ember-source": "3.16.8",
+    "eslint": "^5.0",
+    "eslint-config-prettier": "^3.3",
+    "eslint-plugin-chai-friendly": "^0.5.0",
+    "eslint-plugin-cypress": "^2.8.1",
+    "eslint-plugin-ember": "^6.0",
+    "eslint-plugin-ember-es6-class": "^0.0.1",
+    "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-prettier": "^3.0",
+    "loader.js": "^4.7.0",
+    "prettier": "^1.15",
+    "qunit-dom": "^0.8.4"
+  },
+  "engines": {
+    "node": "8.* || >= 10.*"
+  },
+  "dependencies": {
+    "ember-classic-decorator": "^1.0.8",
+    "uuid": "^8.1.0"
+  }
+}

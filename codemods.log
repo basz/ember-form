@@ -1,0 +1,7 @@
+2020-05-25T07:14:48.704Z [info] [app/controllers/application.js]: SUCCESS
+2020-05-25T07:14:48.719Z [warn] [app/helpers/json.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-05-25T07:14:48.764Z [info] [app/app.js]: SUCCESS
+2020-05-25T07:14:48.778Z [info] [app/models/child.js]: SUCCESS
+2020-05-25T07:14:48.797Z [info] [app/router.js]: SUCCESS
+2020-05-25T07:14:48.809Z [info] [app/models/root.js]: SUCCESS
+2020-05-25T07:14:48.858Z [info] [app/routes/application.js]: SUCCESS

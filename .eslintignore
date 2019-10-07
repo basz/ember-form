@@ -1,0 +1,24 @@
+# unconventional js
+/blueprints/*/files/
+packages/*/vendor/
+
+# compiled output
+packages/*/dist/
+packages/*/tmp/
+
+# dependencies
+node_modules/
+packages/*/node_modules/
+packages/*/public/
+
+# misc
+packages/*/coverage/
+!.*
+
+# ember-try
+packages/*/.node_modules.ember-try/
+packages/*/bower.json.ember-try
+packages/*/package.json.ember-try
+
+# any minified file
+**/*.min.js
