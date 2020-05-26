@@ -2,8 +2,12 @@ import { helper } from '@ember/component/helper';
 import { isNone } from '@ember/utils';
 
 export default helper((params, hash) => {
-  const [json] = params;
+  let [json] = params;
   let { pretty } = hash;
+
+  if (json === undefined) {
+    json = 'undefined';
+  }
 
   pretty = isNone(pretty);
 
