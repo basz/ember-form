@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col-7">
-      <h6>property on model</h6>
+      <h6>property on root (not nested)</h6>
     </div>
     <div class="col-7">
       <code class="small">
@@ -32,7 +32,7 @@
 
   <div class="row">
     <div class="col-7">
-      <h6>property on model.fragment</h6>
+      <h6>property on model.child (nested)</h6>
     </div>
     <div class="col-7">
       <code class="small">
@@ -68,38 +68,9 @@
 
   <div class="row py-5">
     <div class="col-10">
-      <p>There is `model` (root) which has a `fragment` (child).</p>
-      <pre><code class="small">
-export default class Root extends Model {
-  @attr('string', {
-    defaultValue: () => {
-      return '1';
-    }
-  })
-  prop;
-
-  @fragment('child', {
-    defaultValue: () => {
-      return '1';
-    }
-  })
-  child;
-}
-
-export default Fragment.extend({
-  prop: attr('string', {
-    defaultValue: () => {
-      return '1';
-    }
-  })
-});
-      </code></pre>
-      <p>We have bs bootstrap form which contains changeset as model</p>
-      <p>We create a changeset: `new Changeset(model)`</p>
-      <p>The first observation is that 'root' validates fine and only the changeset receives changes.</p>
-
-      <p>However, changes made on the second control seem to get correctly get to  the changeset but do not propagate back into the control. The element value is not updated.</p>
-      <p>In addition setting the setting control to 'null' will result in an error.</p>
+      <p>We create a changeset: `new Changeset({})`</p>
+      <p>root values change fine</p>
+      <p>nested properties do change in the changeset, but are not reflected in the control</p>
     </div>
   </div>
 </div>
