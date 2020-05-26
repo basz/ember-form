@@ -28,7 +28,7 @@
     "ember-bootstrap-changeset-validations": "^3.0.0",
     "ember-changeset": "^3.4.0",
     "ember-changeset-validations": "^3.3.2",
-    "ember-cli": "~3.16.0",
+    "ember-cli": "~3.18.0",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.7.3",
     "ember-cli-dependency-checker": "^3.1.0",
@@ -57,7 +57,8 @@
     "eslint-plugin-prettier": "^3.0",
     "loader.js": "^4.7.0",
     "prettier": "^1.15",
-    "qunit-dom": "^0.8.4"
+    "qunit-dom": "^0.8.4",
+    "validated-changeset": "git+https://github.com/validated-changeset/validated-changeset#master"
   },
   "engines": {
     "node": "8.* || >= 10.*"
