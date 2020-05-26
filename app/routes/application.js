@@ -19,12 +19,13 @@ export default class ApplicationRoute extends Route {
     const childFragment = this.store.createFragment('child');
 
     // create root, with relationship and fragment
-    const root = this.store.createRecord('root', { id: 999, childFragment });
+    const root = this.store.createRecord('root', { childFragment });
 
     await root.save();
 
-    // create changeset
-    const changeset = new Changeset(root, lookupValidator(validations), validations);
+    // try these both changeset model...
+    const changeset = new Changeset({ child: { prop: null } }, lookupValidator(validations), validations);
+    // const changeset = new Changeset(root, lookupValidator(validations), validations);
 
     return { model: root, changeset };
   }
