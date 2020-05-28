@@ -1,5 +1,109 @@
 <div class="container my-5">
 
+  <h4>No changeset</h4>
+  <h5>custom input</h5>
+  <div class="row">
+    <div class="col-7">
+      <h6>property on root (not nested)</h6>
+    </div>
+    <div class="col-7">
+      <code class="small">
+        model prop: {{json this.model.prop}}<br>
+      </code>
+    </div>
+    <div class="col-5">
+      <BsForm @model={{this.model}} @onSubmit={{action "onSubmit"}} as |form|>
+        <form.element @property="prop" as |el|>
+          <code class="small">value in element: {{json el.value}}</code>
+          <BsButtonGroup @value={{el.value}} class="w-100" @type="radio" @onChange={{action (mut this.model.prop)}} as |bg|>
+            <bg.button @type="primary" class="p-3" @value="1">
+              one
+            </bg.button>
+            <bg.button @type="primary" class="p-3" @value="2">
+              two
+            </bg.button>
+            <bg.button @type="primary" class="p-3" @value={{null}}>
+              none
+            </bg.button>
+          </BsButtonGroup>
+        </form.element>
+      </BsForm>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-7">
+      <h6>property on model.child (nested)</h6>
+    </div>
+    <div class="col-7">
+      <code class="small">
+        model child.prop: {{json this.model.child.prop}}<br>
+      </code>
+    </div>
+    <div class="col-5">
+      <BsForm @model={{this.model}} @onSubmit={{action "onSubmit"}} as |form|>
+        <form.element @property="child.prop" as |el|>
+          <code class="small">value in element: {{json el.value}}</code>
+          <BsButtonGroup @value={{el.value}} class="w-100" @type="radio" @onChange={{action (mut this.model.child.prop)}}  as |bg|>
+            <bg.button @type="primary" class="p-3" @value="1">
+              one
+            </bg.button>
+            <bg.button @type="primary" class="p-3" @value="2">
+              two
+            </bg.button>
+            <bg.button @type="primary" class="p-3" @value={{null}}>
+              none
+            </bg.button>
+          </BsButtonGroup>
+        </form.element>
+      </BsForm>
+    </div>
+  </div>
+
+  <hr>
+
+  <h5>regular input</h5>
+  <div class="row">
+    <div class="col-7">
+      <h6>property2 on root (not nested)</h6>
+    </div>
+    <div class="col-7">
+      <code class="small">
+        model prop2: {{json this.model.prop2}}<br>
+      </code>
+    </div>
+    <div class="col-5">
+      <BsForm @model={{this.model}} @onSubmit={{action "onSubmit"}} as |form|>
+        <form.element @property="prop2" as |el|>
+          <code class="small">value in element: {{json el.value}}</code>
+          <el.control/>
+        </form.element>
+      </BsForm>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-7">
+      <h6>property2 on model.child (nested)</h6>
+    </div>
+    <div class="col-7">
+      <code class="small">
+        model child.prop2: {{json this.model.child.prop2}}<br>
+      </code>
+    </div>
+    <div class="col-5">
+      <BsForm @model={{this.model}} @onSubmit={{action "onSubmit"}} as |form|>
+        <form.element @property="child.prop2" as |el|>
+          <code class="small">value in element: {{json el.value}}</code>
+          <el.control/>
+        </form.element>
+      </BsForm>
+    </div>
+  </div>
+
+  <hr>
+
+  <h4>With changeset</h4>
   <h5>custom input</h5>
   <div class="row">
     <div class="col-7">
@@ -40,8 +144,9 @@
         model child.prop: {{json this.model.child.prop}}<br>
         changeset child.prop: {{json (changeset-get this.changeset "child.prop")}}
       </code>
+      <p class="mt-3 small text-warning">The changeset changes but the value is not send back into the control when the value is changed for the second time...</p>
     </div>
-    <div class="col-5">
+    <div class="col-5 bg-warning">
       <BsForm @model={{this.changeset}} @onSubmit={{action "onSubmit"}} as |form|>
         <form.element @property="child.prop" as |el|>
           <code class="small">value in element: {{json el.value}}</code>
@@ -94,7 +199,7 @@
       </code>
     </div>
     <div class="col-5">
-      <BsForm @model={{this.changeset}} @onSubmit={{action "onSubmit"}} as |form|>
+      <BsForm @model={{this.model}} @onSubmit={{action "onSubmit"}} as |form|>
         <form.element @property="child.prop2" as |el|>
           <code class="small">value in element: {{json el.value}}</code>
           <el.control/>
@@ -114,6 +219,7 @@
       <p>We create a changeset: `new Changeset({})`</p>
       <p>root values change fine</p>
       <p>nested properties do change in the changeset, but are not reflected in the control</p>
+      <p class="small"><a href="https://github.com/basz/ember-form">https://github.com/basz/ember-form</a></p>
     </div>
   </div>
 </div>
