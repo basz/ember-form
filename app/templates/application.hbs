@@ -1,5 +1,6 @@
 <div class="container my-5">
 
+  <h5>custom input</h5>
   <div class="row">
     <div class="col-7">
       <h6>property on root (not nested)</h6>
@@ -55,6 +56,48 @@
               none
             </bg.button>
           </BsButtonGroup>
+        </form.element>
+      </BsForm>
+    </div>
+  </div>
+
+  <hr>
+  <h5>regular input</h5>
+  <div class="row">
+    <div class="col-7">
+      <h6>property2 on root (not nested)</h6>
+    </div>
+    <div class="col-7">
+      <code class="small">
+        model prop2: {{json this.model.prop2}}<br>
+        changeset prop2: {{json this.changeset.prop2}}
+      </code>
+    </div>
+    <div class="col-5">
+      <BsForm @model={{this.changeset}} @onSubmit={{action "onSubmit"}} as |form|>
+        <form.element @property="prop2" as |el|>
+          <code class="small">value in element: {{json el.value}}</code>
+          <el.control/>
+        </form.element>
+      </BsForm>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-7">
+      <h6>property2 on model.child (nested)</h6>
+    </div>
+    <div class="col-7">
+      <code class="small">
+        model child.prop2: {{json this.model.child.prop2}}<br>
+        changeset child.prop2: {{json (changeset-get this.changeset "child.prop2")}}
+      </code>
+    </div>
+    <div class="col-5">
+      <BsForm @model={{this.changeset}} @onSubmit={{action "onSubmit"}} as |form|>
+        <form.element @property="child.prop2" as |el|>
+          <code class="small">value in element: {{json el.value}}</code>
+          <el.control/>
         </form.element>
       </BsForm>
     </div>
