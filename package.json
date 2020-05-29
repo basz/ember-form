@@ -40,7 +40,7 @@
     "ember-cli-template-lint": "^1.0.0-beta.1",
     "ember-cli-uglify": "^2.1.0",
     "ember-data": "3.16.6",
-    "ember-data-model-fragments": "https://github.com/richgt/ember-data.model-fragments.git#f7810c9a2bfbe86aa665b3e488048be65c8101f2",
+    "ember-data-model-fragments": "^5.0.0-beta.0",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^2.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
