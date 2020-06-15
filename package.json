@@ -55,11 +55,13 @@
     "eslint-plugin-prettier": "^3.0",
     "loader.js": "^4.7.0",
     "prettier": "^1.15",
-    "qunit-dom": "^0.8.4"  },
+    "qunit-dom": "^0.8.4"
+  },
   "engines": {
     "node": "8.* || >= 10.*"
   },
   "dependencies": {
+    "@ember/render-modifiers": "^1.0.2",
     "ember-classic-decorator": "^1.0.8",
     "ember-truth-helpers": "^2.1.0",
     "uuid": "^8.1.0"
