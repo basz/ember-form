@@ -1,18 +1,26 @@
 <code class="small">
-  changeset prop: {{json this.changeset.prop}}<br>
+  changeset prop:
+  {{json this.changeset.prop}}
+  <br />
 </code>
-
 <button class="w-100" onClick={{action this.clicked 1}}>
   one
 </button>
 <button class="w-100" onClick={{action this.clicked 2}}>
   two
 </button>
-
-<hr>
-
-<ClassicComponent @value={{this.changeset.prop2}}/>
-
-<GlimmerComponent @value={{this.changeset.prop3}}/>
-
-<GlimmerComponentWithModifier @value={{this.changeset.prop4}}/>
+<hr />
+<button {{on "click" (fn (changeset-set this.changeset "prop2") 1000)}}>
+  Update ClassicComponent
+</button>
+<ClassicComponent @value={{changeset-get this.changeset "prop2"}} />
+<br />
+<button {{on "click" (fn (changeset-set this.changeset "prop3") 2000)}}>
+  Update GlimmerComponent
+</button>
+<GlimmerComponent @value={{changeset-get this.changeset "prop3"}} />
+<br />
+<button {{on "click" (fn (changeset-set this.changeset "prop4") 3000)}}>
+  Update GlimmerComponentWithModifier
+</button>
+<GlimmerComponentWithModifier @value={{changeset-get this.changeset "prop4"}} />
